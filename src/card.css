@@ -145,16 +145,19 @@
 @media screen and (max-width: 1010px) {
     .card span {
         font-size: .6rem;
+        align-items: start;
     }
 }
 @media screen and (max-width: 800px) {
     .card span {
         font-size: .5rem;
+        align-items: start;
     }
 }
 @media screen and (max-width: 650px) {
     .card span {
         font-size: .34rem;
+        align-items: start;
     }
 }
 
