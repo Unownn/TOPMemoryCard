@@ -28,14 +28,26 @@ header {
     justify-items: left;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   h2 {
     font-size: .9rem;
   }
   .score p{
-    font-size: small;
+    font-size: .9rem;
   }
   .score div{
-    font-size: small;
+    font-size: .9rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  h2 {
+    font-size: .6rem;
+  }
+  .score p{
+    font-size: .6rem;
+  }
+  .score div{
+    font-size: .6rem;
   }
 }
