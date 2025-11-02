@@ -1,6 +1,6 @@
 :root {
   --border-thickness: 2px;
-  --border-speed: 1s;
+  --border-speed: 2s;
   --header-height: 110px; 
 }
 
@@ -24,9 +24,9 @@
   background-size: 200% 100%;
   animation: border-h-forward var(--border-speed) linear infinite;
   pointer-events: none;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  z-index: 1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  z-index: 2;
 }
 
 /* Bottom border (R → L) */
@@ -37,13 +37,13 @@
   left: 0;
   right: 0;
   height: var(--border-thickness);
-  background: linear-gradient(90deg, gold, rgb(234,0,255), gold);
+  background: linear-gradient(90deg, rgb(234,0,255), gold, rgb(234,0,255));
   background-size: 200% 100%;
   animation: border-h-backward var(--border-speed) linear infinite;
   pointer-events: none;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  z-index: 1;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 2;
 }
 
 /* Animations for the top, bottom border gradient */
@@ -94,7 +94,7 @@
   background-size: 100% 200%;
   animation: border-v-up var(--border-speed) linear infinite;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* Right  border (bottom → top) */
@@ -105,11 +105,11 @@
   bottom: 0;
   right: 0;
   width: var(--border-thickness);
-  background: linear-gradient(180deg, gold, rgb(234,0,255), gold);
+  background: linear-gradient(180deg, rgb(234,0,255), gold, rgb(234,0,255));
   background-size: 100% 200%;
   animation: border-v-down var(--border-speed) linear infinite;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* Animation for left, right border gradient */
@@ -131,7 +131,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
 
 .card span {
@@ -144,6 +143,7 @@
     text-align: center;
     padding: .25rem .5rem;
     font-size: .8rem;
+    z-index: 1;
 }
 
 @media screen and (max-width: 1010px) {
@@ -161,3 +161,4 @@
         font-size: .34rem;
     }
 }
+
