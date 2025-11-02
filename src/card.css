@@ -57,12 +57,11 @@
 
 /* Inner card (the actual card) */
 .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
+    display: grid;
+    grid-template-rows: 85% 15%;
 
     /* Keep the cards square, and also fit the grid inside the "content" div*/
+    border-radius: 5px;
     aspect-ratio: 1/1;
     max-height: calc(calc(100vh - var(--header-height))/4.5);
     width: 100%;
@@ -77,7 +76,7 @@
     padding: 0;
     transition: transform 0.1s ease-in-out; 
 
-    background: #020c0c;     
+    background: #000000;     
     /* Keep the added borders round*/
     overflow: hidden; 
 }
@@ -127,23 +126,22 @@
 }
 
 .card img {
-    flex-grow: 0 0 90%;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;              
+    display: block;
 }
 
 .card span {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: .35rem .5rem;
+    font-size: .8rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 10%;
-    background-color: rgb(2, 12, 12);
-    color: #fff;
-    text-align: center;
-    padding: .25rem .5rem;
-    font-size: .8rem;
-    z-index: 1;
+    min-height: 2rem;  
 }
 
 @media screen and (max-width: 1010px) {
