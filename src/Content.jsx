@@ -9,16 +9,10 @@ function Content({ score, onScoreUpdate, onScoreReset }){
     
     // Fetch the JSON file and load the window upon finishing
     useEffect(() => {
-        async function load() {
-            const res = await fetch("./cards.json");
-            const data = await res.json();
-            const shuffled = [...data].sort(() => Math.random() - 0.5);
-
-            setCards(shuffled);
-            setLoading(false);
-        }
-
-        load();
+    fetch("/cards.json")
+      .then((res) => res.json())
+      .then((data) => setCards(data), setLoading(false))
+      .catch((err) => console.error(err));
     }, []);
 
     function handleClick(id){
