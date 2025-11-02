@@ -1,0 +1,141 @@
+:root {
+  --border-thickness: 2px;
+  --border-speed: 1s;
+  --header-height: 110px; 
+}
+
+/* Outer wrap of the card */
+.card-wrap {
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Top border (L → R) */
+.card-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0; 
+  height: var(--border-thickness);
+  background: linear-gradient(90deg, gold, rgb(234,0,255), gold);
+  background-size: 200% 100%;
+  animation: border-h-forward var(--border-speed) linear infinite;
+  pointer-events: none;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  z-index: 1;
+}
+
+/* Bottom border (R → L) */
+.card-wrap::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--border-thickness);
+  background: linear-gradient(90deg, gold, rgb(234,0,255), gold);
+  background-size: 200% 100%;
+  animation: border-h-backward var(--border-speed) linear infinite;
+  pointer-events: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  z-index: 1;
+}
+
+/* Animations for the top, bottom border gradient */
+@keyframes border-h-forward {
+  to { background-position: 200% 0; }
+}
+
+@keyframes border-h-backward {
+  to { background-position: -200% 0; }
+}
+
+/* Inner card (the actual card) */
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+
+    /* Keep the cards square, and also fit the grid inside the "content" div*/
+    aspect-ratio: 1/1;
+    max-height: calc(calc(100vh - var(--header-height))/4.5);
+    min-height: calc(calc(100vh - var(--header-height))/4.5);
+
+    /* Random box shadow*/
+    box-shadow: 
+      1px 1px 10px rgba(255, 0, 0, 0.5), 
+      -1px -1px 10px rgba(0, 0, 255, 0.5); 
+
+    /* padding + transition*/
+    padding: 0;
+    transition: transform 0.1s ease-in-out; 
+
+    background: #020c0c;     
+    /* Keep the added borders round*/
+    overflow: hidden; 
+}
+
+/* Left border (top -> bottom) */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--border-thickness);
+  background: linear-gradient(180deg, gold, rgb(234,0,255), gold);
+  background-size: 100% 200%;
+  animation: border-v-up var(--border-speed) linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Right  border (bottom → top) */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: var(--border-thickness);
+  background: linear-gradient(180deg, gold, rgb(234,0,255), gold);
+  background-size: 100% 200%;
+  animation: border-v-down var(--border-speed) linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Animation for left, right border gradient */
+@keyframes border-v-down {
+  to { background-position: 0 200%; }
+}
+
+@keyframes border-v-up {
+  to { background-position: 0 -200%; }
+}
+
+/* Extras */
+.card:hover {
+    transform: scale(1.01);
+}
+
+.card img {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.card span {
+    background-color: rgb(2, 12, 12);
+    color: #fff;
+    text-align: center;
+    padding: .25rem .5rem;
+    font-size: .9rem;
+}

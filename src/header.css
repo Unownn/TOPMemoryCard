@@ -1,0 +1,29 @@
+header {
+  background-color: #111111; 
+  color: #ffffff; 
+  padding: 15px 30px; 
+  padding-right: 5em;
+  padding-left: 5em;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; 
+}
+
+.highscore {
+  font-weight: 600;
+}
+
+.highscore--gold {
+  color: rgb(255, 215, 0);           
+  text-shadow: 0 0 8px rgba(251,191,36,.6);
+}
+
+.score {
+    display: grid;
+    justify-items: left;
+}
