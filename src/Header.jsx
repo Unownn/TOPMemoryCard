@@ -6,7 +6,7 @@ function Header({ score, highScore }){
     return(
         <header>
             <div>
-                <h1>Memory Game</h1>
+                <h2>Unown's memory cards</h2>
             </div>
             <div className="score">
                 <p>Score: {score}</p>

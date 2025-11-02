@@ -27,3 +27,15 @@ header {
     display: grid;
     justify-items: left;
 }
+
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: .9rem;
+  }
+  .score p{
+    font-size: small;
+  }
+  .score div{
+    font-size: small;
+  }
+}
